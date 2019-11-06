@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Comparing arrays</title>
+    <script>
+        var i = 0;
+        var j = 0;
+        var pics = ["<img src = 'blackberry.jpg' height = '200px' width = '200px'>" , "<img src = 'dragon.jpg'  height = '200px' width = '200px'>", "<img src = 'jack.jpg'  height = '200px' width = '200px'>", "<img src = 'grapefruit.jpg'  height = '200px' width = '200px'>", "<img src = 'papaya.jpg'  height = '200px' width = '200px'>", "<img src = 'cong.jpg'  height = '200px' width = '200px'>"];
+        var perAnswers = [];
+        var realAnswers  = ["blackberry", "dragonfruit", "jackfruit", "grapefruit", "papaya" ];
+         var finalscore = 0;
+
+       function comp()
+       {
+           i++;
+
+           document.getElementById("imgOut").innerHTML = pics[i];
+           perAnswers[j] = parseInt(document.getElementById("input").value);
+
+              if(perAnswers[j] == realAnswers[j])
+              {
+                  finalscore++;
+              }
+          j++;
+          if(j > 4)
+          {
+            win();
+          }
+       }
+
+
+       function win()
+       {
+         if(finalscore == 5)
+         {
+            alert("All correct");
+          }
+          else {
+            alert("You got some wrong");
+          }
+       }
+       function start()
+       {
+         document.getElementById('imgOut').innerHTML = pics[0];
+         document.getElementById('begin').style.visibility = "hidden";
+       }
+    </script>
+  </head>
+
+    <body style="background-color:coral;">
+    <hr>
+    <center><h1>Guess The Fruit</h1><center>
+    <hr>
+    <input type = "button" value = "click" onclick = "comp()">
+    <input type = "button" id = "begin" value = "click here to begin " onclick = "start()">
+    <input type = "text" id = "input">
+    <span id = "imgOut"></span>
+    <span id = finalscore></span>
+  </body>
+</html>
